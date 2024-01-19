@@ -107,10 +107,17 @@ class Sheet:
             RowStart = int((e.timeStart.hour + (e.timeStart.minute / 60)) * 2 + 2)
             RowEnd = int((e.timeEnd.hour + (e.timeEnd.minute / 60)) * 2 + 1)
             Col = e.date + 1
-            #if(self.is_cell_empty(RowStart, RowEnd, Col) == False):
-            #    continue
+            if(self.is_cell_empty(RowStart, RowEnd, Col) == False):
+                continue
             self.ws.merge_cells(start=(RowStart, Col), end=(RowEnd, Col))
             self.ws.update_value((RowStart, Col), e.member)
+    #判斷儲存格是否為空
+    def is_cell_empty(sheet: pygsheets.Worksheet, a: int, b: int, col: int) -> bool:
+        while a <= b:
+            if(sheet.get_value((a, col)) != ''):
+                return False
+            a+=1
+        return True
 
 
 
@@ -121,7 +128,7 @@ time.sleep(5)
 #savior.GetComments("https://www.facebook.com/groups/183236594717256/posts/282242764816638/")
 savior.LoadRentInfo()
 
-sheet = Sheet("C:\\Users\\User\\source\\repos\\NTPURockSavior\\NTPURockSavior\\ntpu-rock-helper.json")
+sheet = Sheet("C:\\Users\oscar\\source\\repos\\Amadeus0417\\NTPURockSavior\\NTPURockSavior\\ntpu-rock-helper.json")
 sheet.OpenSheet("https://docs.google.com/spreadsheets/d/1xXQ2xZev1V2alaQ2T_FBnJrjCJgbugxs2GhMoCCzu6s/edit#gid=0")
 sheet.ChooseWorkSheet("工作表1")
 sheet.FillData(savior.rentlist)
