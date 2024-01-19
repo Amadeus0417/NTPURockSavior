@@ -1,12 +1,9 @@
 from ast import Tuple
 from lib2to3.pgen2.parse import ParseError
 from webbrowser import Chrome
-import os
-import os.path
 import pandas as pd
 import re, time, requests
 import selenium
-import tkinter as tk
 import pygsheets 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -16,6 +13,7 @@ from dateutil import parser
 from typing import List
 import datetime
 import time
+import SaviorUI
 
 #修正時間格式
 def fourdigit(t):

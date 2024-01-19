@@ -34,3 +34,38 @@ class SaviorUI:
         tk.Entry(self.window, textvariable=self.hwsheet).grid(row=6, column=1)
         tk.Entry(self.window, textvariable=self.gsjson).grid(row=7, column=1)
         tk.Button(self.window, text='½T»{', command=self.window.destroy).grid(row=8, column=0, columnspan=2)
+        try:
+            self.AutoFill()
+        except:
+            pass
+        self.window.mainloop()
+        self.Memorize()
+
+
+    def AutoFill(self):
+        self.path = os.getenv('temp')
+        self.filename = os.path.join(self.path, 'info.txt')
+        try:
+            with open(self.filename) as fp:
+                acc, pas, web, gsh, wsh, hsh, hws, gsj = fp.read().strip().split(',')
+                self.account.set(acc)
+                self.password.set(pas)
+                self.website.set(web)
+                self.gsheet.set(gsh)
+                self.wsheet.set(wsh)
+                self.hsheet.set(hsh)
+                self.hwsheet.set(hws)
+                self.gsjson.set(gsj)
+        except:
+            pass
+
+    def Memorize(self):
+        with open(self.filename, 'w') as fp:
+            fp.write(','.join((self.account.get(),
+                               self.password.get(), 
+                               self.website.get(), 
+                               self.gsheet.get(), 
+                               self.wsheet.get(), 
+                               self.hsheet.get(), 
+                               self.hwsheet.get(), 
+                               self.gsjson.get())))
