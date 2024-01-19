@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "ntpu-rock-helper",
+  "private_key_id": "542f0855ae93187e824db153bb631e8afaa1eaf3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8cMpvP0gtZIdc\n7hDFhD+pIha46H0Q3DF689J5TkmDK94D2r5z2jBC54chvfDXfzhOG9mCbAv+3vCy\nSYfMwTDEIP1z4tyF27QVLGdDJD7zx1rFXEpWjQXtjezFPxok9kQ4aBO8H3FTpD6D\n6np/RtEHWdUix0QSLI2XYPucQRxLA7zg01rHXwcXoGt32oHbbFoirpZolX+JsvKp\n2m0WJvg/qWqkczeUKA9vsTDepzAdtW0rqFK3efgXBiqs/Ahic+GQ3V9oHLN2o+Gy\nn8dsyerrkiDtcxuCs6UIncflsYo9NAvOHLImZmWQwQqmqg2r1SYMXJ0y2jCXiCRD\nWn6E9FCNAgMBAAECggEALAAfOK47VYQTem7JQkGQ1taTnS4GI/VyZU4A/5u43RTV\nZKuDTIxuN/UVb9rI3ZzCYjStC3/cpjDa3Zp/R991WlqEq/ZVPTlRmZ8SZpJUU7ph\nNtPHtOF9eJxq5JzJJ0fMoqokr4jc/qWLhmRuIYGA5flDI/mI6sB1+FqoLbJjX51S\n0Zsri4l+c4ykLiFSkRM3zE4nDmcp/wDL9yRxsxGR5sO0DlLhAlIyVM9CGhN2Oqap\njLmpsNXxAUMekMHaWQaR1QISG9xDI6PRl6u4za0aW2kqwzUYK5/OmF5r8NKHwWcY\nG+m1s6LOsmw4qN/q/1nBJxoXXfLsyJ3YxRi+F9+LkQKBgQD2YHXS0hxXXlKsbAmI\nWXehjWRGSAd5/BAMx6n+f6TqMTmrZZHpEMBrRc6pqvJmz29k+EegByEVXO72ZK3u\nE73hXfPC/k1cY0sMTsjwh54cajlTWn1aUdmFJUaSp+3rF47z/sZXibPy5xg8wlup\nTkAeCLx+uo8m8oUlnktZMeCKUQKBgQDDzQWnuzoUXFfZ12zW/TCPBP/Hd4VlODRm\nLwCCmp5thffAt6Kr/vMLuosbogqXvoCDaWvkIJewZgAJlFo2ey2VCjMt2BGg/o/Y\n5AY1RPz3AHZBeHr3N7yF6DM9VYLwB18/yKYUD17CdNBUUgfSpJe2Sob/KkBk5YEK\nmT1qQ0uXfQKBgAoEyCXHh4GCA2ihiA20XaoDHuXAvhUWy+xJHj+MHz+qusaefb11\nge2azBmYKv1FSClZ80etoonE2q7IT05UHS+R63ytbKXqH74jYgZt7V8IbsZV8qz+\nkRLZ/jGuhH0/2v9PB++9WMTy4shtut56oR7Xihq5KWMTD5kFA9lfrtrRAoGABkhy\n8QHyCCs6anQeOvve7gf0CTuNnUTjcY/6jTZW9R7CZ329C5XfyLWQty9I9buYNh9Q\n5f4hv/hV8fi/uFXVjZ3JLKRtVGQ2y3fttxHiqC5snQc3su0n8IgV9Nbkn70s0kgn\nBCfGG6lR8hK7y4eakq/riw6ZCGPQ8z0dmmZUa6UCgYEAoHXHE/KJ6YnmjCroiFaW\ngm+yDcgMlJg2bDUfPTM9FuunBAcx2OClJg57UJEhi1yI/hN5uK8Prg3tPU67vhVd\njPX2kqoSbiINSqDR1+kIukpiZ8K6NqEIY28AjpTYTWr6MIz94sU/5DO94rxiLU/h\nIfIkJJukXLb66W2q73S73I8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "ntpurockhelper@ntpu-rock-helper.iam.gserviceaccount.com",
+  "client_id": "101108329312200653060",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ntpurockhelper%40ntpu-rock-helper.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
