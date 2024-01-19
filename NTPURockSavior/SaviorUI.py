@@ -1,4 +1,5 @@
-from msilib.schema import SelfReg
+#-*- coding: big5 -*-
+
 import os
 import os.path
 import tkinter as tk

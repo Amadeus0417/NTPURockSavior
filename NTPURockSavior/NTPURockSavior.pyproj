@@ -23,7 +23,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="NTPURockSavior.py" />
+    <Compile Include="Savior.py" />
     <Compile Include="SaviorUI.py" />
+    <Compile Include="Sheet.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.11" />
