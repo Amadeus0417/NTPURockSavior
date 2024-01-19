@@ -24,6 +24,7 @@
   <ItemGroup>
     <Compile Include="NTPURockSavior.py" />
     <Compile Include="Savior.py" />
+    <Compile Include="SaviorData.py" />
     <Compile Include="SaviorUI.py" />
     <Compile Include="Sheet.py" />
   </ItemGroup>
