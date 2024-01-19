@@ -6,20 +6,19 @@ import time
 
 #import pandas as pd
 #import re, time, requests
-data = SaviorData()
 
-window = SaviorUI(data)
+savior = SaviorUI()
 
-savior = NTPURockSavior()
-savior.FaceBookLogin(data.account, data.password)
+driver = NTPURockSavior()
+driver.FaceBookLogin(savior.data.account, savior.data.password)
 #savior.GetComments(data.website)
-savior.GetComments("https://www.facebook.com/permalink.php?story_fbid=pfbid02ow2NDRJpiJ4hwZx5orxKiT8v5EA8S3HvZXGEFcB5PjkVvdp4vDnBaVULRLPCvFmql&id=100000304782470")
-savior.LoadRentInfo()
+driver.GetComments("https://www.facebook.com/permalink.php?story_fbid=pfbid02ow2NDRJpiJ4hwZx5orxKiT8v5EA8S3HvZXGEFcB5PjkVvdp4vDnBaVULRLPCvFmql&id=100000304782470")
+driver.LoadRentInfo()
 
-sheet = Sheet(data.gsjson)
-sheet.OpenSheet(data.gsheet)
-sheet.ChooseWorkSheet(data.wsheet)
-sheet.FillData(savior.rentlist)
+sheet = Sheet(savior.data.gsjson)
+sheet.OpenSheet(savior.data.gsheet)
+sheet.ChooseWorkSheet(savior.data.wsheet)
+sheet.FillData(driver.rentlist)
 
 
 
