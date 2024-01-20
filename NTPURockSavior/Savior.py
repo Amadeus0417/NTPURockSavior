@@ -50,9 +50,12 @@ class NTPURockSavior:
         
     # 分割租借資訊到 rentinfo 物件內(可以用 pd.dataframe 改寫)
     def LoadRentInfo(self):
-        for c in self.comments:   
+        self.rentlist = []
+        for c in self.comments:
             commentinfo = c.text.split(' ')
-            print(commentinfo)
+            if(commentinfo[0] == '#'):
+                self.rentlist.clear()
+                continue;
             try:
                 date = datetime.datetime.strptime(commentinfo[0], '%m/%d').day
                 time = commentinfo[1].split('-')
