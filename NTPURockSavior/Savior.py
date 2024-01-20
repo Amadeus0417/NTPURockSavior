@@ -63,7 +63,7 @@ class NTPURockSavior:
             except (ParseError, ValueError):
                 pass
 
-    def fourdigit(t):
+    def fourdigit(self, t):
         if len(t) == 1:
             t = '0' + t + '00'
         elif len(t) == 2:
