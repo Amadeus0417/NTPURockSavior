@@ -26,3 +26,7 @@ class Sheet:
                 continue
             self.ws.merge_cells(start=(RowStart, Col), end=(RowEnd, Col))
             self.ws.update_value((RowStart, Col), e.member)
+
+    def Stats(self, rentlist):
+        return
+        
