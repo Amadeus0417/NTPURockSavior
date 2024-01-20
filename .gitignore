@@ -4,9 +4,11 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # 跟專案無關的檔案
-NTPURockSavior\__pycache__
-NTPURockSavior\build\NTPURockSavior
-NTPURockSavior\ntpu-rock-helper.json
+NTPURockSavior/__pycache__
+NTPURockSavior/build/NTPURockSavior
+NTPURockSavior/ntpu-rock-helper.json
+*.json
+
 
 # User-specific files
 *.rsuser
