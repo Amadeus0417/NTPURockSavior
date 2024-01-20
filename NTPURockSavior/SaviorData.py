@@ -11,3 +11,5 @@ class SaviorData:
         self.hsheet = tk.StringVar()
         self.hwsheet = tk.StringVar()
         self.gsjson = tk.StringVar()
+        self.isCal = tk.BooleanVar()
+        self.isFill = tk.BooleanVar()

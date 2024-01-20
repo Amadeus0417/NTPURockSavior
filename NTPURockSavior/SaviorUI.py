@@ -9,7 +9,7 @@ class SaviorUI:
     
     def __init__(self):
         self.window = tk.Tk()
-        self.window.title('NTPU Rock Helper')
+        self.window.title('NTPU Rock Savior')
         self.window.geometry("800x600")
         self.data = SaviorData()
         tk.Label(self.window, text= 'Facebook 帳號').grid(row=0, column=0)
@@ -28,15 +28,15 @@ class SaviorUI:
         tk.Entry(self.window, textvariable=self.data.hsheet).grid(row=5, column=1)
         tk.Entry(self.window, textvariable=self.data.hwsheet).grid(row=6, column=1)
         tk.Entry(self.window, textvariable=self.data.gsjson).grid(row=7, column=1)
-        tk.Button(self.window, text='確認', command=self.window.destroy).grid(row=8, column=0, columnspan=2)
+        tk.Checkbutton(self.window, text='填寫租借資訊', variable=self.data.isFill).grid(row=8, column=0, columnspan=2)
+        tk.Checkbutton(self.window, text='統計練團時數', variable=self.data.isCal).grid(row=9, column=0, columnspan=2)
+        tk.Button(self.window, text='開始', command=self.window.destroy).grid(row=10, column=0, columnspan=2)
         try:
             self.AutoFill()
         except:
             pass
         self.window.mainloop()
         self.Memorize()
-
-
     def AutoFill(self):
         self.path = os.getenv('temp')
         self.filename = os.path.join(self.path, 'info.txt')
