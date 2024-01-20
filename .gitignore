@@ -5,7 +5,7 @@
 
 # 跟專案無關的檔案
 NTPURockSavior/__pycache__
-NTPURockSavior/build/NTPURockSavior
+NTPURockSavior/build
 NTPURockSavior/ntpu-rock-helper.json
 *.json
 
