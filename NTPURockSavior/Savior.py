@@ -1,5 +1,4 @@
-import selenium
-import datetime
+from datetime import datetime
 from lib2to3.pgen2.parse import ParseError
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -57,10 +56,10 @@ class NTPURockSavior:
                 self.rentlist.clear()
                 continue;
             try:
-                date = datetime.datetime.strptime(commentinfo[0], '%m/%d').day
+                date = datetime.strptime(commentinfo[0], '%m/%d').day
                 time = commentinfo[1].split('-')
-                timeStart = datetime.datetime.strptime(self.fourdigit(time[0]), '%H%M')
-                timeEnd = datetime.datetime.strptime(self.fourdigit(time[1]), '%H%M')
+                timeStart = datetime.strptime(self.fourdigit(time[0]), '%H%M')
+                timeEnd = datetime.strptime(self.fourdigit(time[1]), '%H%M')
                 member = '\n'.join(commentinfo[2:])
                 self.rentlist.append(RentInfo(date, timeStart, timeEnd, member))
             except (ParseError, ValueError):

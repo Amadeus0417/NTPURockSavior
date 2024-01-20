@@ -1,15 +1,19 @@
+#-*- coding: big5 -*-
+
 import pygsheets
+import re
+import pandas as pd
 
 class Sheet:
     #取得google表單授權
     def __init__(self, token):
         self.gc = pygsheets.authorize(service_account_file=token)
     #開啟試算表
-    def OpenSheet(self, link):
-        self.sheet = self.gc.open_by_url(link)
+    def OpenWorkSheet(self, link, name):
+        self.ws = self.gc.open_by_url(link).worksheet_by_title(name)
+    def OpenStatSheet(self, link, name):
+        self.statSheet = self.gc.open_by_url(link).worksheet_by_title(name)
     #開啟指定工作表
-    def ChooseWorkSheet(self, name):
-        self.ws = self.sheet.worksheet_by_title(name)
     def is_cell_empty(self, a, b, col) -> bool:
         while a <= b:
             if(self.ws.get_value((a, col)) != ''):
@@ -26,7 +30,22 @@ class Sheet:
                 continue
             self.ws.merge_cells(start=(RowStart, Col), end=(RowEnd, Col))
             self.ws.update_value((RowStart, Col), e.member)
-
-    def Stats(self, rentlist):
-        return
+    #計算練團時數(讀取儲存格內的data、分割、再紀錄時數)
+    def Calculate(self):
+        stat = dict()
+        grange = self.ws.merged_ranges
+        for r in grange:
+            col = r.start.col
+            start = r.start.row
+            end = r.end.row
+            member = re.split('[\n\s]', self.ws.get_value((start, col)))
+            for m in member:
+                try:
+                    stat[m] += (end - start + 1) * 0.5
+                except:
+                    stat[m] = (end - start + 1) * 0.5
+        statMatrix = pd.DataFrame(list(stat.items()))
+        statMatrix.columns = ['姓名', '練團時數']
+        self.statSheet.set_dataframe(statMatrix, (1,1))
+        
         
