@@ -10,7 +10,7 @@
 
 ### 怎麼用？
 1.直接把上面的 NTPURockSavior.exe 抓下來   
-2.把你的 google 表單跟 ntpurockhelper@ntpu-rock-helper.iam.gserviceaccount.com 共用
+2.把你的 google 表單跟 ntpurockhelper@ntpu-rock-helper.iam.gserviceaccount.com 共用   
 3.還要有一份憑證檔案才能用，這個只能找我拿^^  
 
 ### v2.00更新內容
