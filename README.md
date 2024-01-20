@@ -9,8 +9,9 @@
 3.統計 google 表單上的練團時數(總務好幫手!)  
 
 ### 怎麼用？
-直接把上面的 NTPURockSavior.exe 抓下來就好了   
-不過你還要有一份憑證檔案才能用，這個只能找我拿^^  
+1.直接把上面的 NTPURockSavior.exe 抓下來   
+2.把你的 google 表單跟 ntpurockhelper@ntpu-rock-helper.iam.gserviceaccount.com 共用
+3.還要有一份憑證檔案才能用，這個只能找我拿^^  
 
 ### v2.00更新內容
 1.把流程拆分到多個 .py 檔案內，提升可讀性  
