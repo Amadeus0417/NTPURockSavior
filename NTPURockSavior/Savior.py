@@ -56,8 +56,6 @@ class NTPURockSavior:
     def LoadRentInfo(self):
         self.rentlist = []
         for c in self.comments:
-            print(c.text)
-            print('---')
             commentinfo = c.text.split(' ')
             if(commentinfo[0] == '#'):
                 self.rentlist.clear()
@@ -72,9 +70,6 @@ class NTPURockSavior:
                     self.rentlist.append(RentInfo(date, timeStart, timeEnd, member))
                 except:
                     continue
-        print('---')
-        print(self.rentlist)
-        #self.driver.quit()
 
     def fourdigit(self, t):
         if len(t) == 1:
