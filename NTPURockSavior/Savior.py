@@ -3,6 +3,9 @@ from lib2to3.pgen2.parse import ParseError
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 class RentInfo:
 
@@ -20,7 +23,7 @@ class NTPURockSavior:
         option.add_argument("--disable-infobars")
         option.add_argument("--disable-extensions")
         option.add_experimental_option("prefs", {"profile.default_content_setting_values.notifications": 2})
-        self.driver = webdriver.Chrome(options=option)
+        self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=option)
         self.rentlist = []
     # facebook login
     def FaceBookLogin(self, account, password):
