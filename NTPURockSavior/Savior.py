@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
+import time, re
 
 
 class RentInfo:
@@ -48,25 +49,32 @@ class NTPURockSavior:
     def GetComments(self, postlink):
         self.driver.get(postlink)
         self.ExpandComments()
+        time.sleep(10)
         self.comments = self.driver.find_elements(By.CLASS_NAME, "xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x1vvkbs")
         
     # 分割租借資訊到 rentinfo 物件內(可以用 pd.dataframe 改寫)
     def LoadRentInfo(self):
         self.rentlist = []
         for c in self.comments:
+            print(c.text)
+            print('---')
             commentinfo = c.text.split(' ')
             if(commentinfo[0] == '#'):
                 self.rentlist.clear()
                 continue;
-            try:
-                date = datetime.strptime(commentinfo[0], '%m/%d').day
-                time = commentinfo[1].split('-')
-                timeStart = datetime.strptime(self.fourdigit(time[0]), '%H%M')
-                timeEnd = datetime.strptime(self.fourdigit(time[1]), '%H%M')
-                member = '\n'.join(commentinfo[2:])
-                self.rentlist.append(RentInfo(date, timeStart, timeEnd, member))
-            except (ParseError, ValueError):
-                pass
+            else:
+                try:
+                    date = datetime.strptime(commentinfo[0], '%m/%d').day
+                    time = re.split('[-~]', commentinfo[1])
+                    timeStart = datetime.strptime(self.fourdigit(time[0]), '%H%M')
+                    timeEnd = datetime.strptime(self.fourdigit(time[1]), '%H%M')
+                    member = '\n'.join(commentinfo[2:])
+                    self.rentlist.append(RentInfo(date, timeStart, timeEnd, member))
+                except:
+                    continue
+        print('---')
+        print(self.rentlist)
+        #self.driver.quit()
 
     def fourdigit(self, t):
         if len(t) == 1:

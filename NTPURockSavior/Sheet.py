@@ -3,6 +3,8 @@
 import pygsheets
 import re
 import pandas as pd
+import calendar
+from datetime import datetime
 
 class Sheet:
     #取得google表單授權
@@ -20,8 +22,17 @@ class Sheet:
                 return False
             a+=1
         return True
+    def SetDataFrame(self, data):
+        self.df = pd.DataFrame(data)
+        month = calendar.monthrange(datetime.now().year, datetime.now().month)
+        year = str(datetime.now().year) + '/'
+        first = str(datetime.now().month) + '/1'
+        last = str(datetime.now().month) + '/' + str(month[1])
+        date = pd.date_range(start=year+first, end=year+last, freq="D").strftime('%m/%d')
+        self.df.columns = date
     #填入資料
     def FillData(self, rentlist):
+        data = [['' for c in range(31)] for r in range(48)]
         for e in rentlist:
             RowStart = int((e.timeStart.hour + (e.timeStart.minute / 60)) * 2 + 2)
             RowEnd = int((e.timeEnd.hour + (e.timeEnd.minute / 60)) * 2 + 1)
@@ -29,7 +40,10 @@ class Sheet:
             if(self.is_cell_empty(RowStart, RowEnd, Col) == False):
                 continue
             self.ws.merge_cells(start=(RowStart, Col), end=(RowEnd, Col))
-            self.ws.update_value((RowStart, Col), e.member)
+            data[RowStart-2][Col-2] = e.member
+            #self.ws.update_value((RowStart, Col), e.member)
+        self.SetDataFrame(data)
+        self.ws.set_dataframe(self.df, (1,2))
     #計算練團時數(讀取儲存格內的data、分割、再紀錄時數)
     def Calculate(self):
         stat = dict()
