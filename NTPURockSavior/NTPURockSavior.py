@@ -5,7 +5,8 @@ from Sheet import Sheet
 import time
 
 savior_UI = SaviorUI()
-sheet = Sheet(savior_UI.data.gsjson.get())
+credentialPath = './ntpu-rock-helper.json'
+sheet = Sheet(credentialPath)
 
 if(savior_UI.data.isFill.get()):
     savior = NTPURockSavior()
